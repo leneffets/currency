@@ -75,19 +75,31 @@
         <label for="sourceCurrency">Current currency:</label>
         <select id="sourceCurrency">
             <option value="PLN" selected>PLN (Polish Zloty)</option>
-            <option value="CZK">CZK (Czech Koruna)</option>
+            <option value="USD">USD (US Dollar)</option>
             <option value="EUR">EUR (Euro)</option>
-            <option value="TRY">TRY (Turkish Lira)</option>
+            <option value="JPY">JPY (Japanese Yen)</option>
+            <option value="CHF">CHF (Swiss Franc)</option>
             <option value="GBP">GBP (British Pound)</option>
+            <option value="CZK">CZK (Czech Koruna)</option>
+            <option value="DKK">DKK (Danish Krone)</option>
+            <option value="TRY">TRY (Turkish Lira)</option>
+            <option value="SEK">SEK (Swedish Krona)</option>
+            <option value="NOK">NOK (Norwegian Krone)</option>
         </select>
 
         <label for="targetCurrency">Target currency:</label>
         <select id="targetCurrency">
             <option value="EUR" selected>EUR (Euro)</option>
             <option value="PLN">PLN (Polish Zloty)</option>
-            <option value="CZK">CZK (Czech Koruna)</option>
-            <option value="TRY">TRY (Turkish Lira)</option>
+            <option value="USD">USD (US Dollar)</option>
+            <option value="JPY">JPY (Japanese Yen)</option>
+            <option value="CHF">CHF (Swiss Franc)</option>
             <option value="GBP">GBP (British Pound)</option>
+            <option value="CZK">CZK (Czech Koruna)</option>
+            <option value="DKK">DKK (Danish Krone)</option>
+            <option value="TRY">TRY (Turkish Lira)</option>
+            <option value="SEK">SEK (Swedish Krona)</option>
+            <option value="NOK">NOK (Norwegian Krone)</option>
         </select>
 
         <label id="priceLabel" for="price">Price in current currency:</label>
@@ -150,6 +162,8 @@
             const priceInSource = parseFloat(document.getElementById('price').value);
             const weightInGrams = parseFloat(document.getElementById('weight').value);
             const unitWeight = parseFloat(document.getElementById('unitWeight').value);
+            const sourceCurrency = document.getElementById('sourceCurrency').value;
+            const targetCurrency = document.getElementById('targetCurrency').value;
 
             if (isNaN(priceInSource) || priceInSource <= 0) {
                 document.getElementById('output').innerHTML = 'Please enter a valid price.';
@@ -157,16 +171,16 @@
             }
 
             const priceInTarget = priceInSource * exchangeRate;
-            let output = `Price in target currency: ${priceInTarget.toFixed(2)} ${document.getElementById('targetCurrency').value}`;
+            let output = `Price ${priceInSource} ${sourceCurrency}: ${priceInTarget.toFixed(2)} ${targetCurrency}`;
 
             // Only calculate weight-based values if weight is provided
             if (!isNaN(weightInGrams) && weightInGrams > 0) {
                 const pricePerKg = (priceInTarget / weightInGrams) * 1000;
-                output += `<br>Price per kilogram: ${pricePerKg.toFixed(2)} ${document.getElementById('targetCurrency').value}/kg`;
+                output += `<br>Price per kilogram: ${pricePerKg.toFixed(2)} ${targetCurrency}/kg`;
 
                 if (!isNaN(unitWeight) && unitWeight > 0) {
                     const priceForUnit = (pricePerKg / 1000) * unitWeight;
-                    output += `<br>Price for ${unitWeight}g: ${priceForUnit.toFixed(2)} ${document.getElementById('targetCurrency').value}`;
+                    output += `<br>Price for ${unitWeight}g: ${priceForUnit.toFixed(2)} ${targetCurrency}`;
                 }
             }
 
