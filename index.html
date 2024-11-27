@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currency and Weight Converter</title>
+    <title>Währungs- und Gewichtsumrechner</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -71,8 +71,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Currency and Weight Converter</h1>
-        <label for="sourceCurrency">Current currency:</label>
+        <h1>Währungs- und Gewichtsumrechner</h1>
+        <label for="sourceCurrency">Aktuelle Währung:</label>
         <select id="sourceCurrency">
             <option value="PLN" selected>PLN (Polish Zloty)</option>
             <option value="USD">USD (US Dollar)</option>
@@ -87,7 +87,7 @@
             <option value="NOK">NOK (Norwegian Krone)</option>
         </select>
 
-        <label for="targetCurrency">Target currency:</label>
+        <label for="targetCurrency">Zielwährung:</label>
         <select id="targetCurrency">
             <option value="EUR" selected>EUR (Euro)</option>
             <option value="PLN">PLN (Polish Zloty)</option>
@@ -102,19 +102,19 @@
             <option value="NOK">NOK (Norwegian Krone)</option>
         </select>
 
-        <label id="priceLabel" for="price">Price in current currency:</label>
-        <input type="number" id="price" placeholder="e.g. 10" step="0.01" oninput="performCalculations()">
+        <label id="priceLabel" for="price">Preis in aktueller Währung:</label>
+        <input type="number" id="price" placeholder="z.B. 10" step="0.01" oninput="performCalculations()">
 
-        <label for="weight">Weight in grams (optional):</label>
-        <input type="number" id="weight" placeholder="e.g. 200" step="0.01" oninput="performCalculations()">
+        <label for="weight">Gewicht in Aktueller Währung in Gramm (optional):</label>
+        <input type="number" id="weight" placeholder="z.B. 200" step="0.01" oninput="performCalculations()">
 
-        <label for="unitWeight">Unit weight in grams (optional):</label>
+        <label for="unitWeight">Gewicht in Zielwährung in Gramm (optional):</label>
         <input type="number" id="unitWeight" placeholder="e.g. 250" step="0.01" oninput="performCalculations()">
 
-        <label for="exchangeRate">Current exchange rate:</label>
+        <label for="exchangeRate">Aktueller Wechselkurs:</label>
         <div class="exchange-container">
             <input type="text" id="exchangeRate" readonly>
-            <button class="refresh-button" id="refreshRate" title="Update exchange rate">🔄</button>
+            <button class="refresh-button" id="refreshRate" title="Wechselkurs aktualisieren">🔄</button>
         </div>
         <div class="exchange-info" id="exchangeInfo"></div>
 
@@ -136,14 +136,14 @@
                 exchangeRate = data.rates[targetCurrency];
                 exchangeTimestamp = data.time_last_updated
                     ? new Date(data.time_last_updated * 1000).toLocaleString()
-                    : 'Unknown';
+                    : 'Unbekannt';
 
                 // Display exchange rate and time
                 document.getElementById('exchangeRate').value = `1 ${sourceCurrency} = ${exchangeRate.toFixed(4)} ${targetCurrency}`;
                 document.getElementById('exchangeInfo').textContent = `Last updated: ${exchangeTimestamp}`;
                 performCalculations(); // Recalculate after rate update
             } catch (error) {
-                alert('Error fetching exchange rate.');
+                alert('Fehler beim Abrufen des Wechselkurses.');
             }
         }
 
@@ -153,7 +153,7 @@
         // Update "Price in current currency" label dynamically
         document.getElementById('sourceCurrency').addEventListener('change', () => {
             const sourceCurrency = document.getElementById('sourceCurrency').value;
-            document.getElementById('priceLabel').textContent = `Price in ${sourceCurrency}:`;
+            document.getElementById('priceLabel').textContent = `Preis in ${sourceCurrency}:`;
             fetchExchangeRate();
         });
 
@@ -166,7 +166,7 @@
             const targetCurrency = document.getElementById('targetCurrency').value;
 
             if (isNaN(priceInSource) || priceInSource <= 0) {
-                document.getElementById('output').innerHTML = 'Please enter a valid price.';
+                document.getElementById('output').innerHTML = 'Bitte gib einen gültigen Preis ein.';
                 return;
             }
 
