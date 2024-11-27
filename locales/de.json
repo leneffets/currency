@@ -6,9 +6,9 @@
     "weightLabel": "Gewicht in Gramm (optional):",
     "unitWeightLabel": "Stückgewicht in Gramm (optional):",
     "exchangeRateLabel": "Wechselkurs:",
-    "convertedPrice": "Preis von {price} {sourceCurrency} in {targetCurrency}: {convertedPrice}",
-    "pricePerKg": "Preis pro Kilogramm: {pricePerKg} {targetCurrency}",
-    "unitPrice": "Preis für das Stückgewicht: {unitPrice} {targetCurrency}",
+    "convertedPrice": "Preis {price} {sourceCurrency}: {convertedPrice} {targetCurrency}",
+    "pricePerKg": "Preis pro Kilogram: {pricePerKg} {targetCurrency}/kg",
+    "unitPrice": "Preis für {unitWeight}g: {unitPrice} {targetCurrency}",
     "lastUpdated": "Zuletzt aktualisiert: {exchangeTimestamp}",
     "errorFetchingRate": "Wechselkurs konnte nicht abgerufen werden. Bitte versuchen Sie es später erneut."
 }

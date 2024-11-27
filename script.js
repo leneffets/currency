@@ -94,7 +94,8 @@ function performCalculations() {
 
         if (unitWeight) {
             const unitPrice = ((price / weight) * unitWeight * exchangeRate).toFixed(2);
-            result += `${translations.unitPrice.replace("{unitPrice}", unitPrice)
+            result += `${translations.unitPrice.replace("{unitWeight}", unitWeight)
+                                               .replace("{unitPrice}", unitPrice)
                                                .replace("{targetCurrency}", targetCurrency)}<br>`;
         }
     }
