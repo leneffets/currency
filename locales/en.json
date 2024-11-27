@@ -6,9 +6,9 @@
     "weightLabel": "Weight in grams (optional):",
     "unitWeightLabel": "Unit weight in grams (optional):",
     "exchangeRateLabel": "Exchange Rate:",
-    "convertedPrice": "Price of {price} {sourceCurrency} in {targetCurrency}: {convertedPrice}",
-    "pricePerKg": "Price per kilogram: {pricePerKg} {targetCurrency}",
-    "unitPrice": "Price for unit weight: {unitPrice} {targetCurrency}",
+    "convertedPrice": "Price {price} {sourceCurrency}: {convertedPrice} {targetCurrency}",
+    "pricePerKg": "Price per kilogram: {pricePerKg} {targetCurrency}/kg",
+    "unitPrice": "Price for {unitWeight}g: {unitPrice} {targetCurrency}",
     "lastUpdated": "Last updated: {exchangeTimestamp}",
     "errorFetchingRate": "Unable to fetch the exchange rate. Please try again later."
 }
