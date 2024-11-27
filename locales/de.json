@@ -1,0 +1,14 @@
+{
+    "title": "Währungs- und Gewichtsumrechner",
+    "sourceLabel": "Quellwährung:",
+    "targetLabel": "Zielwährung:",
+    "priceLabel": "Preis in aktueller Währung:",
+    "weightLabel": "Gewicht in Gramm (optional):",
+    "unitWeightLabel": "Stückgewicht in Gramm (optional):",
+    "exchangeRateLabel": "Wechselkurs:",
+    "convertedPrice": "Preis von {price} {sourceCurrency} in {targetCurrency}: {convertedPrice}",
+    "pricePerKg": "Preis pro Kilogramm: {pricePerKg} {targetCurrency}",
+    "unitPrice": "Preis für das Stückgewicht: {unitPrice} {targetCurrency}",
+    "lastUpdated": "Zuletzt aktualisiert: {exchangeTimestamp}",
+    "errorFetchingRate": "Wechselkurs konnte nicht abgerufen werden. Bitte versuchen Sie es später erneut."
+}
