@@ -171,16 +171,16 @@
             }
 
             const priceInTarget = priceInSource * exchangeRate;
-            let output = `Price ${priceInSource} ${sourceCurrency}: ${priceInTarget.toFixed(2)} ${targetCurrency}`;
+            let output = `Preis ${priceInSource} ${sourceCurrency}: ${priceInTarget.toFixed(2)} ${targetCurrency}`;
 
             // Only calculate weight-based values if weight is provided
             if (!isNaN(weightInGrams) && weightInGrams > 0) {
                 const pricePerKg = (priceInTarget / weightInGrams) * 1000;
-                output += `<br>Price per kilogram: ${pricePerKg.toFixed(2)} ${targetCurrency}/kg`;
+                output += `<br>Preis pro Kilogram: ${pricePerKg.toFixed(2)} ${targetCurrency}/kg`;
 
                 if (!isNaN(unitWeight) && unitWeight > 0) {
                     const priceForUnit = (pricePerKg / 1000) * unitWeight;
-                    output += `<br>Price for ${unitWeight}g: ${priceForUnit.toFixed(2)} ${targetCurrency}`;
+                    output += `<br>Preis für ${unitWeight}g: ${priceForUnit.toFixed(2)} ${targetCurrency}`;
                 }
             }
 
