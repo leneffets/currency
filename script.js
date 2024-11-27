@@ -51,12 +51,12 @@ async function updateExchangeRate() {
         if (!response.ok) throw new Error("Failed to fetch exchange rate");
 
         const data = await response.json();
-        const rate = data.rates[targetCurrency];
+        exchangeRate = data.rates[targetCurrency];
         const exchangeTimestamp = data.time_last_updated
                     ? new Date(data.time_last_updated * 1000).toLocaleString()
                     : 'Unknown';
-        if (rate) {
-            document.getElementById("exchangeRate").value = rate.toFixed(4);
+        if (exchangeRate) {
+            document.getElementById("exchangeRate").value = document.getElementById('exchangeRate').value = `1 ${sourceCurrency} = ${exchangeRate.toFixed(4)} ${targetCurrency}`;
             const lastUpdatedText = translations.lastUpdated || "Last updated: {exchangeTimestamp}";
             document.getElementById("exchangeInfo").textContent = lastUpdatedText.replace("{exchangeTimestamp}", exchangeTimestamp);            performCalculations(); // Recalculate based on the new rate
         } else {
@@ -74,7 +74,7 @@ function performCalculations() {
     const price = parseFloat(document.getElementById("price").value) || 0;
     const weight = parseFloat(document.getElementById("weight").value) || 0;
     const unitWeight = parseFloat(document.getElementById("unitWeight").value) || 0;
-    const exchangeRate = parseFloat(document.getElementById("exchangeRate").value) || 1;
+    //const exchangeRate = parseFloat(document.getElementById("exchangeRate").value) || 1;
     const sourceCurrency = document.getElementById("sourceCurrency").value;
     const targetCurrency = document.getElementById("targetCurrency").value;
 
