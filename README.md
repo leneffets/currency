@@ -15,6 +15,10 @@
      - SEK (Swedish Krona)
      - NOK (Norwegian Krone)
 
+1. **Exchange Rate Updates**:
+   - Uses real api endpoint (`https://api.exchangerate-api.com/v4/latest/`) to get latest exchange rates
+   - Displays the last updated time for the exchange rate.
+
 1. **Weight-Based Price Calculations**:
    - Calculate price per kilogram for a given weight.
    - Calculate price for a specific unit weight (e.g., 250g).
@@ -36,13 +40,13 @@
 
 ## How to Use
 1. Select the **current currency** and the **target currency**.
-2. Enter the **price** in the current currency.
-3. (Optional) Add the product's **weight** and a **custom unit weight** (e.g., 250g).
-4. The app will calculate:
+1. Enter the **price** in the current currency.
+1. (Optional) Add the product's **weight** and a **custom unit weight** (e.g., 250g).
+1. The app will calculate:
    - Price in the target currency.
    - Price per kilogram (if weight is provided).
    - Price for the specified unit in **target currency** (if unit weight is provided).
-5. Click the 🔄 button to fetch the latest exchange rates.
+1. Click the 🔄 button to fetch the latest exchange rates.
 
 Access the app directly from GitHub Pages:  
 👉 [Currency and Weight Converter](https://leneffets.github.io/currency/)
