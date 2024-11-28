@@ -1,0 +1,14 @@
+{
+    "title": "Currency and Weight Converter",
+    "sourceLabel": "Source Currency:",
+    "targetLabel": "Target Currency:",
+    "priceLabel": "Price in current currency:",
+    "weightLabel": "Weight in grams for Source Currency (optional):",
+    "unitWeightLabel": "Weight in grams for Target Currency (optional):",
+    "exchangeRateLabel": "Exchange Rate:",
+    "convertedPrice": "Price {price} {sourceCurrency}: {convertedPrice} {targetCurrency}",
+    "pricePerKg": "Price per kilogram: {pricePerKg} {targetCurrency}/kg",
+    "unitPrice": "Price for {unitWeight}g: {unitPrice} {targetCurrency}",
+    "lastUpdated": "Last updated: {exchangeTimestamp}",
+    "errorFetchingRate": "Unable to fetch the exchange rate. Please try again later."
+}
