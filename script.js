@@ -46,6 +46,11 @@ async function updateExchangeRate() {
     const sourceCurrency = document.getElementById("sourceCurrency").value;
     const targetCurrency = document.getElementById("targetCurrency").value;
 
+    // replace labels with currency
+    document.getElementById("priceLabel").textContent = translations.priceLabel.replace("{sourceCurrency}", `${sourceCurrency}`);
+    document.getElementById("weightLabel").textContent = translations.weightLabel.replace("{sourceCurrency}", `${sourceCurrency}`);
+    document.getElementById("unitWeightLabel").textContent = translations.unitWeightLabel.replace("{targetCurrency}", `${targetCurrency}`);
+
     try {
         const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${sourceCurrency}`);
         if (!response.ok) throw new Error("Failed to fetch exchange rate");
@@ -58,7 +63,8 @@ async function updateExchangeRate() {
         if (exchangeRate) {
             document.getElementById("exchangeRate").value = document.getElementById('exchangeRate').value = `1 ${sourceCurrency} = ${exchangeRate.toFixed(4)} ${targetCurrency}`;
             const lastUpdatedText = translations.lastUpdated || "Last updated: {exchangeTimestamp}";
-            document.getElementById("exchangeInfo").textContent = lastUpdatedText.replace("{exchangeTimestamp}", exchangeTimestamp);            performCalculations(); // Recalculate based on the new rate
+            document.getElementById("exchangeInfo").textContent = lastUpdatedText.replace("{exchangeTimestamp}", exchangeTimestamp);            
+            performCalculations(); // Recalculate based on the new rate
         } else {
             throw new Error("Invalid response data");
         }
