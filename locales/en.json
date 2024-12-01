@@ -1,5 +1,5 @@
 {
-    "title": "Currency and Weight Converter",
+    "title": "Currency Converter",
     "sourceLabel": "Source Currency:",
     "targetLabel": "Target Currency:",
     "priceLabel": "Price in {sourceCurrency}:",

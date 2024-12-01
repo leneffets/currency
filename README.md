@@ -23,9 +23,11 @@
    - Calculate price per kilogram for a given weight.
    - Calculate price for a specific unit weight (e.g., 250g).
    - For example: compare prices in supermarket:
-      * enter price for 200g in PLN
-      * converts to kilogram price in EUR
-      * converts to 250g price in EUR
+      * enter price in PLN
+      * add weight for 200g in PLN
+         * converts to kilogram price in EUR
+      * add weight for 250g in EUR
+         * converts to 250g price in EUR
 
 1. **Localization**:
    - Automatically detects browser language and switches between English and German.
