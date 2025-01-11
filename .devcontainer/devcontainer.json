@@ -1,0 +1,12 @@
+{
+    "name": "Currency Dev Container",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
+    "forwardPorts": [3000],
+    "postCreateCommand": "lighttpd -f /etc/lighttpd/lighttpd.conf",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    }
+}
+
