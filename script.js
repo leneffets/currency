@@ -60,18 +60,31 @@ async function updateExchangeRate() {
         const exchangeTimestamp = data.time_last_updated
                     ? new Date(data.time_last_updated * 1000).toLocaleString()
                     : 'Unknown';
+
+        // Save to local storage
+        localStorage.setItem('exchangeRate', JSON.stringify({ rate: exchangeRate, timestamp: exchangeTimestamp }));
+
         if (exchangeRate) {
-            document.getElementById("exchangeRate").value = document.getElementById('exchangeRate').value = `1 ${sourceCurrency} = ${exchangeRate.toFixed(4)} ${targetCurrency}`;
-            const lastUpdatedText = translations.lastUpdated || "Last updated: {exchangeTimestamp}";
-            document.getElementById("exchangeInfo").textContent = lastUpdatedText.replace("{exchangeTimestamp}", exchangeTimestamp);            
+            document.getElementById("exchangeRate").value = `1 ${sourceCurrency} = ${exchangeRate.toFixed(4)} ${targetCurrency}`;
+            const lastUpdatedText = translations.lastUpdated.replace("{exchangeTimestamp}", exchangeTimestamp) || `Last updated: ${exchangeTimestamp}`;
+            document.getElementById("lastUpdated").textContent = lastUpdatedText;
             performCalculations(); // Recalculate based on the new rate
-        } else {
-            throw new Error("Invalid response data");
         }
     } catch (error) {
         console.error("Error updating exchange rate:", error);
-        document.getElementById("exchangeRate").value = "";
-        document.getElementById("exchangeInfo").textContent = translations.errorFetchingRate || "Error fetching exchange rate";
+        // Load from local storage
+        const savedData = JSON.parse(localStorage.getItem('exchangeRate'));
+        if (savedData) {
+            exchangeRate = savedData.rate;
+            const exchangeTimestamp = savedData.timestamp;
+            document.getElementById("exchangeRate").value = `1 ${sourceCurrency} = ${exchangeRate.toFixed(4)} ${targetCurrency}`;
+            const lastUpdatedText = translations.lastUpdated.replace("{exchangeTimestamp}", exchangeTimestamp) || `Last updated: ${exchangeTimestamp}`;
+            document.getElementById("lastUpdated").textContent = lastUpdatedText;
+            performCalculations(); // Recalculate based on the saved rate
+        } else {
+            document.getElementById("exchangeRate").value = "Exchange rate data not available";
+            document.getElementById("lastUpdated").textContent = "Last updated: Unknown";
+        }
     }
 }
 

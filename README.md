@@ -16,7 +16,7 @@
      - NOK (Norwegian Krone)
 
 1. **Exchange Rate Updates**:
-   - Uses real api endpoint (`https://api.exchangerate-api.com/v4/latest/`) to get latest exchange rates
+   - Uses real API endpoint (`https://api.exchangerate-api.com/v4/latest/`) to get the latest exchange rates.
    - Displays the last updated time for the exchange rate.
 
 1. **Weight-Based Price Calculations**:
@@ -39,6 +39,9 @@
 
 1. **Responsive Design**:
    - The application works seamlessly on both desktop and mobile devices.
+
+1. **Offline Support**: 
+   - Loads the exchange rate from local storage if the API call fails.
 
 ## How to Use
 1. Select the **current currency** and the **target currency**.
