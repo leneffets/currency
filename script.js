@@ -67,7 +67,7 @@ async function updateExchangeRate() {
         if (exchangeRate) {
             document.getElementById("exchangeRate").value = `1 ${sourceCurrency} = ${exchangeRate.toFixed(4)} ${targetCurrency}`;
             const lastUpdatedText = translations.lastUpdated.replace("{exchangeTimestamp}", exchangeTimestamp) || `Last updated: ${exchangeTimestamp}`;
-            document.getElementById("lastUpdated").textContent = lastUpdatedText;
+            document.getElementById("exchangeInfo").textContent = lastUpdatedText;
             performCalculations(); // Recalculate based on the new rate
         }
     } catch (error) {
@@ -79,11 +79,11 @@ async function updateExchangeRate() {
             const exchangeTimestamp = savedData.timestamp;
             document.getElementById("exchangeRate").value = `1 ${sourceCurrency} = ${exchangeRate.toFixed(4)} ${targetCurrency}`;
             const lastUpdatedText = translations.lastUpdated.replace("{exchangeTimestamp}", exchangeTimestamp) || `Last updated: ${exchangeTimestamp}`;
-            document.getElementById("lastUpdated").textContent = lastUpdatedText;
+            document.getElementById("exchangeInfo").textContent = lastUpdatedText;
             performCalculations(); // Recalculate based on the saved rate
         } else {
             document.getElementById("exchangeRate").value = "Exchange rate data not available";
-            document.getElementById("lastUpdated").textContent = "Last updated: Unknown";
+            document.getElementById("exchangeInfo").textContent = "Last updated: Unknown";
         }
     }
 }
