@@ -11,10 +11,10 @@
 </head>
 <body>
     <div class="container">
-        <h1 id="title"></h1>
-
-        <label for="sourceCurrency" id="sourceLabel"></label>
-        <select id="sourceCurrency" onchange="saveCurrencySettings(); updateExchangeRate(); performCalculations();">
+        <div class="currency-row">
+            <div class="field">
+                <label for="sourceCurrency" id="sourceLabel"></label>
+                <select id="sourceCurrency" onchange="saveCurrencySettings(); updateExchangeRate(); performCalculations();">
             <option value="PLN" selected>PLN (Polish Zloty)</option>
             <option value="USD">USD (US Dollar)</option>
             <option value="EUR">EUR (Euro)</option>
@@ -26,31 +26,43 @@
             <option value="TRY">TRY (Turkish Lira)</option>
             <option value="SEK">SEK (Swedish Krona)</option>
             <option value="NOK">NOK (Norwegian Krone)</option>
-        </select>
+                </select>
+            </div>
+            <div class="field">
+                <label for="targetCurrency" id="targetLabel"></label>
+                <select id="targetCurrency" onchange="saveCurrencySettings(); updateExchangeRate(); performCalculations();">
+                    <option value="EUR" selected>EUR (Euro)</option>
+                    <option value="PLN">PLN (Polish Zloty)</option>
+                    <option value="USD">USD (US Dollar)</option>
+                    <option value="JPY">JPY (Japanese Yen)</option>
+                    <option value="CHF">CHF (Swiss Franc)</option>
+                    <option value="GBP">GBP (British Pound)</option>
+                    <option value="CZK">CZK (Czech Koruna)</option>
+                    <option value="DKK">DKK (Danish Krone)</option>
+                    <option value="TRY">TRY (Turkish Lira)</option>
+                    <option value="SEK">SEK (Swedish Krona)</option>
+                    <option value="NOK">NOK (Norwegian Krone)</option>
+                </select>
+            </div>
+        </div>
 
-        <label for="targetCurrency" id="targetLabel"></label>
-        <select id="targetCurrency" onchange="saveCurrencySettings(); updateExchangeRate(); performCalculations();">
-            <option value="EUR" selected>EUR (Euro)</option>
-            <option value="PLN">PLN (Polish Zloty)</option>
-            <option value="USD">USD (US Dollar)</option>
-            <option value="JPY">JPY (Japanese Yen)</option>
-            <option value="CHF">CHF (Swiss Franc)</option>
-            <option value="GBP">GBP (British Pound)</option>
-            <option value="CZK">CZK (Czech Koruna)</option>
-            <option value="DKK">DKK (Danish Krone)</option>
-            <option value="TRY">TRY (Turkish Lira)</option>
-            <option value="SEK">SEK (Swedish Krona)</option>
-            <option value="NOK">NOK (Norwegian Krone)</option>
-        </select>
+        <div class="price-row">
+            <label for="price" id="priceLabel"></label>
+            <div class="input-with-button">
+                <input type="number" id="price" placeholder="e.g. 10" step="0.01" inputmode="decimal" pattern="[0-9]*([.,][0-9]+)?" oninput="performCalculations()">
+                <button type="button" id="resetButton" class="reset-button" title="" aria-label="" onclick="resetInputs()">🧹</button>
+            </div>
+        </div>
 
-        <label for="price" id="priceLabel"></label>
-        <input type="number" id="price" placeholder="e.g. 10" step="0.01" oninput="performCalculations()">
+        <details id="optionalDetails" class="optional-details">
+            <summary id="optionalSummary"></summary>
 
-        <label for="weight" id="weightLabel"></label>
-        <input type="number" id="weight" placeholder="e.g. 200" step="0.01" oninput="performCalculations()">
+            <label for="weight" id="weightLabel"></label>
+            <input type="number" id="weight" placeholder="e.g. 200" step="0.01" inputmode="decimal" pattern="[0-9]*([.,][0-9]+)?" oninput="onOptionalInput()">
 
-        <label for="unitWeight" id="unitWeightLabel"></label>
-        <input type="number" id="unitWeight" placeholder="e.g. 250" step="0.01" oninput="performCalculations()">
+            <label for="unitWeight" id="unitWeightLabel"></label>
+            <input type="number" id="unitWeight" placeholder="e.g. 250" step="0.01" inputmode="decimal" pattern="[0-9]*([.,][0-9]+)?" oninput="onOptionalInput()">
+        </details>
 
         <label for="exchangeRate" id="exchangeRateLabel"></label>
         <div class="exchange-container">

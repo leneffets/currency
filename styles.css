@@ -59,3 +59,60 @@ input, select {
     color: #555;
     margin-top: 5px;
 }
+
+/* Layout for source/target currency on the same row */
+.currency-row {
+    display: flex;
+    gap: 12px;
+    margin-top: 10px;
+}
+.currency-row .field {
+    flex: 1;
+}
+.currency-row label {
+    display: block;
+    margin-top: 0;
+}
+
+/* Styles for optional inputs summary */
+.optional-details summary {
+    font-weight: bold;
+    cursor: pointer;
+    padding: 8px 0;
+    list-style: none;
+}
+.optional-details {
+    margin-top: 12px;
+    padding: 8px;
+    border: 1px dashed #ddd;
+    border-radius: 6px;
+    background: #fafafa;
+}
+.optional-details input {
+    margin-top: 6px;
+}
+
+/* Price input with reset button */
+.price-row {
+    margin-top: 15px;
+}
+.input-with-button {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+.input-with-button input {
+    flex: 1;
+}
+.reset-button {
+    background: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 6px 8px;
+    cursor: pointer;
+    font-size: 1.1em;
+    line-height: 1;
+}
+.reset-button:hover {
+    background: #eee;
+}

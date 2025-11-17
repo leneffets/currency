@@ -1,7 +1,11 @@
 {
-    "title": "Währungsrechner",
     "sourceLabel": "Quellwährung:",
     "targetLabel": "Zielwährung:",
+    "optionalSummaryTitle": "Optionale Eingaben",
+    "optionalSummaryNone": "Keine optionalen Werte gesetzt",
+    "showMore": "Mehr anzeigen",
+    "showLess": "Weniger anzeigen",
+    "resetTooltip": "Eingaben zurücksetzen",
     "priceLabel": "Preis in {sourceCurrency}:",
     "weightLabel": "Gewicht in Gramm in {sourceCurrency} (optional):",
     "unitWeightLabel": "Gewicht in Gramm in {targetCurrency} (optional):",

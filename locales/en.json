@@ -1,7 +1,11 @@
 {
-    "title": "Currency Converter",
     "sourceLabel": "Source Currency:",
     "targetLabel": "Target Currency:",
+    "optionalSummaryTitle": "Optional inputs",
+    "optionalSummaryNone": "No optional values set",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "resetTooltip": "Clear inputs",
     "priceLabel": "Price in {sourceCurrency}:",
     "weightLabel": "Weight in grams for {sourceCurrency} (optional):",
     "unitWeightLabel": "Weight in grams for {targetCurrency} (optional):",
