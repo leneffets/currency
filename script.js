@@ -201,6 +201,9 @@ function resetInputs() {
 
     // keep currency settings in localStorage unchanged
     performCalculations();
+
+    // Focus on price input for new input
+    if (priceEl) priceEl.focus();
 }
 
 // Initialize the app (wait for DOM ready before touching DOM)
@@ -211,7 +214,7 @@ function resetInputs() {
 
     await loadLocale(userLanguage);
     loadCurrencySettings();
-    
+
     // initial exchange rate fetch (debounced wrapper)
     updateExchangeRate();
 })();
