@@ -9,6 +9,7 @@
     "priceLabel": "Price in {sourceCurrency}:",
     "weightLabel": "Weight in grams for {sourceCurrency} (optional):",
     "unitWeightLabel": "Weight in grams for {targetCurrency} (optional):",
+    "bankenrateLabel": "Bank markup % (optional):",
     "exchangeRateLabel": "Exchange Rate:",
     "convertedPrice": "Price {price} {sourceCurrency}: {convertedPrice} {targetCurrency}",
     "pricePerKg": "Price per kilogram: {pricePerKg} {targetCurrency}/kg",

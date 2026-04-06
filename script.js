@@ -38,6 +38,12 @@ function localizePage() {
         resetBtn.setAttribute('aria-label', translations.resetTooltip);
     }
 
+    // localize bankenrate label if present
+    const bankenrateLabel = document.getElementById('bankenrateLabel');
+    if (bankenrateLabel && translations.bankenrateLabel) {
+        bankenrateLabel.textContent = translations.bankenrateLabel;
+    }
+
 }
 
 // Save currency settings to localStorage
@@ -150,25 +156,29 @@ function performCalculations() {
     const price = parseNumberInput('price');
     const weight = parseNumberInput('weight');
     const unitWeight = parseNumberInput('unitWeight');
+    const bankenrate = parseNumberInput('bankenrate');
     const sourceCurrency = document.getElementById("sourceCurrency").value;
     const targetCurrency = document.getElementById("targetCurrency").value;
 
+    // Apply bank markup to exchange rate (positive % = fee reduces rate, negative % = discount increases rate)
+    const rateWithMarkup = exchangeRate * (1 - bankenrate / 100);
+
     let result = "";
     if (price && exchangeRate) {
-        const convertedPrice = (price * exchangeRate).toFixed(2);
+        const convertedPrice = (price * rateWithMarkup).toFixed(2);
         result += `${translations.convertedPrice.replace("{sourceCurrency}", sourceCurrency)
                                              .replace("{targetCurrency}", targetCurrency)
                                              .replace("{price}", price)
                                              .replace("{convertedPrice}", convertedPrice)}<br>`;
 
         if (weight) {
-            const pricePerKg = ((price / weight) * 1000 * exchangeRate).toFixed(2);
+            const pricePerKg = ((price / weight) * 1000 * rateWithMarkup).toFixed(2);
             result += `${translations.pricePerKg.replace("{pricePerKg}", pricePerKg)
                                                  .replace("{targetCurrency}", targetCurrency)}<br>`;
         }
 
         if (unitWeight) {
-            const unitPrice = ((price / weight) * unitWeight * exchangeRate).toFixed(2);
+            const unitPrice = ((price / weight) * unitWeight * rateWithMarkup).toFixed(2);
             result += `${translations.unitPrice.replace("{unitWeight}", unitWeight)
                                                .replace("{unitPrice}", unitPrice)
                                                .replace("{targetCurrency}", targetCurrency)}<br>`;
@@ -186,16 +196,18 @@ function onOptionalInput() {
     performCalculations();
 }
 
-// Reset only user inputs (price, weight, unitWeight) but keep currency settings
+// Reset only user inputs (price, weight, unitWeight, bankenrate) but keep currency settings
 function resetInputs() {
     const priceEl = document.getElementById('price');
     const weightEl = document.getElementById('weight');
     const unitWeightEl = document.getElementById('unitWeight');
+    const bankenrateEl = document.getElementById('bankenrate');
     const outputEl = document.getElementById('output');
 
     if (priceEl) priceEl.value = '';
     if (weightEl) weightEl.value = '';
     if (unitWeightEl) unitWeightEl.value = '';
+    if (bankenrateEl) bankenrateEl.value = '';
     if (outputEl) outputEl.innerHTML = '';
 
     // keep currency settings in localStorage unchanged
