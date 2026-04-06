@@ -16,7 +16,7 @@
      - NOK (Norwegian Krone)
 
 1. **Exchange Rate Updates**:
-   - Uses real API endpoint (`https://api.exchangerate-api.com/v4/latest/`) to get the latest exchange rates.
+   - Uses real API endpoint (`https://api.frankfurter.dev/v2/rates`) to get the latest exchange rates.
    - Displays the last updated time for the exchange rate.
 
 1. **Weight-Based Price Calculations**:

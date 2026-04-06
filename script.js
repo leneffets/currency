@@ -70,13 +70,13 @@ async function fetchAndApplyExchangeRate() {
     if (unitWeightLabelEl) unitWeightLabelEl.textContent = translations.unitWeightLabel.replace("{targetCurrency}", `${targetCurrency}`);
 
     try {
-        const response = await fetch(`https://api.exchangerate-api.com/v4/latest/${sourceCurrency}`);
+        const response = await fetch(`https://api.frankfurter.dev/v2/rates?base=${sourceCurrency}&quotes=${targetCurrency}`);
         if (!response.ok) throw new Error("Failed to fetch exchange rate");
 
         const data = await response.json();
-        exchangeRate = data.rates[targetCurrency];
-        const exchangeTimestamp = data.time_last_updated
-                    ? new Date(data.time_last_updated * 1000).toLocaleString("de-DE", {
+        exchangeRate = data[0]?.rate;
+        const exchangeTimestamp = data[0]?.date
+                    ? new Date(data[0].date).toLocaleString("de-DE", {
                         day: '2-digit',
                         month: '2-digit',
                         year: 'numeric',
@@ -150,7 +150,6 @@ function performCalculations() {
     const price = parseNumberInput('price');
     const weight = parseNumberInput('weight');
     const unitWeight = parseNumberInput('unitWeight');
-    //const exchangeRate = parseFloat(document.getElementById("exchangeRate").value) || 1;
     const sourceCurrency = document.getElementById("sourceCurrency").value;
     const targetCurrency = document.getElementById("targetCurrency").value;
 
