@@ -45,6 +45,7 @@
 
 ## How to Use
 1. Select the **current currency** and the **target currency**.
+1. (Optional) Add a **bank markup percentage** to adjust the exchange rate (positive values reduce the rate, negative values increase it).
 1. Enter the **price** in the current currency.
 1. (Optional) Add the product's **weight** and a **custom unit weight** (e.g., 250g).
 1. The app will calculate:
@@ -52,6 +53,7 @@
    - Price per kilogram (if weight is provided).
    - Price for the specified unit in **target currency** (if unit weight is provided).
 1. Click the 🔄 button to fetch the latest exchange rates.
+1. Use the 🧹 button to reset all input fields while preserving your currency preferences.
 
 Access the app directly from GitHub Pages:  
 👉 [Currency and Weight Converter](https://leneffets.github.io/currency/)
