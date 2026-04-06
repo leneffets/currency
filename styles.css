@@ -1,17 +1,50 @@
+:root {
+    /* Light mode colors */
+    --bg-body: #f4f4f9;
+    --bg-container: #ffffff;
+    --text-primary: #000000;
+    --text-secondary: #555555;
+    --border-color: #cccccc;
+    --border-dashed: #ddd;
+    --bg-optional: #fafafa;
+    --bg-button: #f0f0f0;
+    --bg-button-hover: #eeeeee;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Dark mode colors */
+        --bg-body: #1a1a1a;
+        --bg-container: #2d2d2d;
+        --text-primary: #e0e0e0;
+        --text-secondary: #b0b0b0;
+        --border-color: #444444;
+        --border-dashed: #555555;
+        --bg-optional: #363636;
+        --bg-button: #404040;
+        --bg-button-hover: #4a4a4a;
+        --shadow-color: rgba(0, 0, 0, 0.3);
+    }
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    background-color: var(--bg-body);
+    color: var(--text-primary);
     margin: 0;
     padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: var(--bg-container);
     border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 10px var(--shadow-color);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 h1 {
@@ -22,6 +55,7 @@ label {
     font-weight: bold;
     display: block;
     margin-top: 15px;
+    color: var(--text-primary);
 }
 
 * {
@@ -32,8 +66,16 @@ input, select {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
-    border: 1px solid #cccccc;
+    border: 1px solid var(--border-color);
     border-radius: 4px;
+    background-color: var(--bg-container);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #666;
 }
 
 .exchange-container {
@@ -52,11 +94,12 @@ input, select {
 .output {
     margin-top: 20px;
     font-size: 1.1em;
+    color: var(--text-primary);
 }
 
 .exchange-info {
     font-size: 0.9em;
-    color: #555;
+    color: var(--text-secondary);
     margin-top: 5px;
 }
 
@@ -80,13 +123,15 @@ input, select {
     cursor: pointer;
     padding: 8px 0;
     list-style: none;
+    color: var(--text-primary);
 }
 .optional-details {
     margin-top: 12px;
     padding: 8px;
-    border: 1px dashed #ddd;
+    border: 1px dashed var(--border-dashed);
     border-radius: 6px;
-    background: #fafafa;
+    background: var(--bg-optional);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 .optional-details input {
     margin-top: 6px;
@@ -105,14 +150,15 @@ input, select {
     flex: 1;
 }
 .reset-button {
-    background: #f0f0f0;
-    border: 1px solid #ccc;
+    background: var(--bg-button);
+    border: 1px solid var(--border-color);
     border-radius: 6px;
     padding: 6px 8px;
     cursor: pointer;
     font-size: 1.1em;
     line-height: 1;
+    transition: background-color 0.3s ease;
 }
 .reset-button:hover {
-    background: #eee;
+    background: var(--bg-button-hover);
 }
