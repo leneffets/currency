@@ -45,10 +45,35 @@ body {
     border-radius: 8px;
     box-shadow: 0 2px 10px var(--shadow-color);
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    overflow: auto;
 }
 
 h1 {
     text-align: center;
+    margin: 0 0 20px 0;
+}
+
+.install-badge {
+    background: none;
+    border: 1px solid #2d7ef2;
+    color: #2d7ef2;
+    border-radius: 4px;
+    padding: 6px 10px;
+    font-size: 0.85em;
+    cursor: pointer;
+    display: inline-block;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    float: right;
+}
+
+.install-badge:hover {
+    background: #2d7ef2;
+    color: #ffffff;
+}
+
+.install-badge:active {
+    transform: scale(0.95);
 }
 
 label {
