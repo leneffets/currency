@@ -1,4 +1,4 @@
-# Currency and Weight Converter
+# Currency Converter
 
 1. **Currency Conversion**:
    - Convert prices from one currency to another.
@@ -19,15 +19,9 @@
    - Uses real API endpoint (`https://api.frankfurter.dev/v2/rates`) to get the latest exchange rates.
    - Displays the last updated time for the exchange rate.
 
-1. **Weight-Based Price Calculations**:
-   - Calculate price per kilogram for a given weight.
-   - Calculate price for a specific unit weight (e.g., 250g).
-   - For example: compare prices in supermarket:
-      * enter price in PLN
-      * add weight for 200g in PLN
-         * converts to kilogram price in EUR
-      * add weight for 250g in EUR
-         * converts to 250g price in EUR
+1. **Optional Price per Weight Calculations**:
+   - Calculate price per kilogram when weight is provided
+   - Compare products by weight (e.g., 200g vs 250g packages)
 
 1. **Localization**:
    - Automatically detects browser language and switches between English and German.
@@ -47,16 +41,13 @@
 1. Select the **current currency** and the **target currency**.
 1. (Optional) Add a **bank markup percentage** to adjust the exchange rate (positive values reduce the rate, negative values increase it).
 1. Enter the **price** in the current currency.
-1. (Optional) Add the product's **weight** and a **custom unit weight** (e.g., 250g).
-1. The app will calculate:
-   - Price in the target currency.
-   - Price per kilogram (if weight is provided).
-   - Price for the specified unit in **target currency** (if unit weight is provided).
+1. (Optional) Enter **weight** to calculate price per kilogram
+1. The app shows the price in the target currency
 1. Click the 🔄 button to fetch the latest exchange rates.
 1. Use the 🧹 button to reset all input fields while preserving your currency preferences.
 
 Access the app directly from GitHub Pages:  
-👉 [Currency and Weight Converter](https://leneffets.github.io/currency/)
+👉 [Currency Converter](https://leneffets.github.io/currency/)
 
 ## Screenshot
 ![image](https://github.com/user-attachments/assets/a1d71a72-45cc-4436-a050-f4c4cbb8373b)

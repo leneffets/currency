@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Currency and Weight Converter</title>
+    <meta name="theme-color" content="#2d2d2d">
+    <meta name="description" content="Currency Converter - Convert currencies and calculate prices per weight">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Currency Converter">
+    <title>Currency Converter</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="icon" type="image/png" href="favicon.png"/>
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="manifest" href="manifest.json">
     <script src="script.js"></script>
-
 </head>
 <body>
     <div class="container">
@@ -76,6 +82,7 @@
         <div class="exchange-info" id="exchangeInfo"></div>
 
         <div class="output" id="output"></div>
+        <button id="installButton" class="install-badge" style="display:none;" title="Install app">📱 Install the app</button>
     </div>
 </body>
 </html>

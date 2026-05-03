@@ -223,6 +223,29 @@ function resetInputs() {
     if (priceEl) priceEl.focus();
 }
 
+// Capture install prompt
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    const installBtn = document.getElementById('installButton');
+    if (installBtn) {
+        installBtn.style.display = 'block';
+    }
+});
+
+
+
+window.addEventListener('appinstalled', () => {
+    deferredPrompt = null;
+});
+
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch((err) => console.error('SW registration failed:', err));
+}
+
+
+
 // Initialize the app (wait for DOM ready before touching DOM)
 (async function initializeApp() {
     if (document.readyState === 'loading') {
@@ -231,6 +254,19 @@ function resetInputs() {
 
     await loadLocale(userLanguage);
     loadCurrencySettings();
+
+    // Setup install button
+    const installBtn = document.getElementById('installButton');
+    if (installBtn) {
+        installBtn.addEventListener('click', async () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                await deferredPrompt.userChoice;
+                deferredPrompt = null;
+                installBtn.style.display = 'none';
+            }
+        });
+    }
 
     // initial exchange rate fetch (debounced wrapper)
     updateExchangeRate();
