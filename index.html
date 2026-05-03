@@ -20,35 +20,25 @@
         <div class="currency-row">
             <div class="field">
                 <label for="sourceCurrency" id="sourceLabel"></label>
-                <select id="sourceCurrency" onchange="saveCurrencySettings(); updateExchangeRate(); performCalculations();">
-            <option value="PLN" selected>PLN (Polish Zloty)</option>
-            <option value="USD">USD (US Dollar)</option>
-            <option value="EUR">EUR (Euro)</option>
-            <option value="JPY">JPY (Japanese Yen)</option>
-            <option value="CHF">CHF (Swiss Franc)</option>
-            <option value="GBP">GBP (British Pound)</option>
-            <option value="CZK">CZK (Czech Koruna)</option>
-            <option value="DKK">DKK (Danish Krone)</option>
-            <option value="TRY">TRY (Turkish Lira)</option>
-            <option value="SEK">SEK (Swedish Krona)</option>
-            <option value="NOK">NOK (Norwegian Krone)</option>
-                </select>
+                <input type="text" id="sourceCurrency" list="currencyList" value="PLN" onchange="saveCurrencySettings(); updateExchangeRate(); performCalculations();" oninput="saveCurrencySettings(); updateExchangeRate(); performCalculations();">
+            <datalist id="currencyList">
+                <option value="PLN">Polish Zloty</option>
+                <option value="USD">US Dollar</option>
+                <option value="EUR">Euro</option>
+                <option value="JPY">Japanese Yen</option>
+                <option value="CHF">Swiss Franc</option>
+                <option value="GBP">British Pound</option>
+                <option value="CZK">Czech Koruna</option>
+                <option value="DKK">Danish Krone</option>
+                <option value="TRY">Turkish Lira</option>
+                <option value="SEK">Swedish Krona</option>
+                <option value="NOK">Norwegian Krone</option>
+            </datalist>
             </div>
+            <button type="button" id="swapCurrency" class="swap-button" title="Swap currencies" onclick="swapCurrencies()">⇄</button>
             <div class="field">
                 <label for="targetCurrency" id="targetLabel"></label>
-                <select id="targetCurrency" onchange="saveCurrencySettings(); updateExchangeRate(); performCalculations();">
-                    <option value="EUR" selected>EUR (Euro)</option>
-                    <option value="PLN">PLN (Polish Zloty)</option>
-                    <option value="USD">USD (US Dollar)</option>
-                    <option value="JPY">JPY (Japanese Yen)</option>
-                    <option value="CHF">CHF (Swiss Franc)</option>
-                    <option value="GBP">GBP (British Pound)</option>
-                    <option value="CZK">CZK (Czech Koruna)</option>
-                    <option value="DKK">DKK (Danish Krone)</option>
-                    <option value="TRY">TRY (Turkish Lira)</option>
-                    <option value="SEK">SEK (Swedish Krona)</option>
-                    <option value="NOK">NOK (Norwegian Krone)</option>
-                </select>
+                <input type="text" id="targetCurrency" list="currencyList" value="EUR" onchange="saveCurrencySettings(); updateExchangeRate(); performCalculations();" oninput="saveCurrencySettings(); updateExchangeRate(); performCalculations();">
             </div>
         </div>
 

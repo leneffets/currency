@@ -198,6 +198,17 @@ function performCalculations() {
 // Note: dynamic optional summary removed; the <summary> shows a static localized title and native
 // expand/collapse behavior is used.
 
+function swapCurrencies() {
+    const sourceEl = document.getElementById('sourceCurrency');
+    const targetEl = document.getElementById('targetCurrency');
+    const temp = sourceEl.value;
+    sourceEl.value = targetEl.value;
+    targetEl.value = temp;
+    saveCurrencySettings();
+    updateExchangeRate();
+    performCalculations();
+}
+
 function onOptionalInput() {
     performCalculations();
 }

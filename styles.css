@@ -133,6 +133,7 @@ input:focus, select:focus {
     display: flex;
     gap: 12px;
     margin-top: 10px;
+    align-items: flex-end;
 }
 .currency-row .field {
     flex: 1;
@@ -140,6 +141,20 @@ input:focus, select:focus {
 .currency-row label {
     display: block;
     margin-top: 0;
+}
+.swap-button {
+    background: var(--bg-button);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 10px 12px;
+    cursor: pointer;
+    font-size: 1.2em;
+    line-height: 1;
+    transition: background-color 0.3s ease;
+    margin-bottom: 0;
+}
+.swap-button:hover {
+    background: var(--bg-button-hover);
 }
 
 /* Styles for optional inputs summary */
@@ -186,4 +201,8 @@ input:focus, select:focus {
 }
 .reset-button:hover {
     background: var(--bg-button-hover);
+}
+
+#sourceCurrency, #targetCurrency {
+    text-transform: uppercase;
 }
