@@ -82,7 +82,7 @@ async function fetchAndApplyExchangeRate() {
         const data = await response.json();
         exchangeRate = data[0]?.rate;
         const exchangeTimestamp = data[0]?.date
-                    ? new Date(data[0].date).toLocaleString("de-DE", {
+                    ? new Date(data[0].date).toLocaleString(userLanguage === "de" ? "de-DE" : "en-US", {
                         day: '2-digit',
                         month: '2-digit',
                         year: 'numeric',
@@ -110,7 +110,13 @@ async function fetchAndApplyExchangeRate() {
     } catch (error) {
         console.error("Error updating exchange rate:", error);
         // Load from local storage
-        const savedData = JSON.parse(localStorage.getItem('exchangeRate'));
+        const savedData = (() => {
+            try {
+                return JSON.parse(localStorage.getItem('exchangeRate'));
+            } catch {
+                return null;
+            }
+        })();
         const exchangeRateEl = document.getElementById("exchangeRate");
         const exchangeInfoEl = document.getElementById("exchangeInfo");
         if (savedData) {
