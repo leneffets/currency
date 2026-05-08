@@ -64,8 +64,8 @@ function loadCurrencySettings() {
 
 // Internal function that actually fetches and applies the exchange rate
 async function fetchAndApplyExchangeRate() {
-    const sourceCurrency = document.getElementById("sourceCurrency").value;
-    const targetCurrency = document.getElementById("targetCurrency").value;
+    const sourceCurrency = document.getElementById("sourceCurrency").value.toUpperCase();
+    const targetCurrency = document.getElementById("targetCurrency").value.toUpperCase();
 
     // replace labels with currency (safely)
     const priceLabelEl = document.getElementById("priceLabel");
@@ -163,8 +163,8 @@ function performCalculations() {
     const weight = parseNumberInput('weight');
     const unitWeight = parseNumberInput('unitWeight');
     const bankenrate = parseNumberInput('bankenrate');
-    const sourceCurrency = document.getElementById("sourceCurrency").value;
-    const targetCurrency = document.getElementById("targetCurrency").value;
+    const sourceCurrency = document.getElementById("sourceCurrency").value.toUpperCase();
+    const targetCurrency = document.getElementById("targetCurrency").value.toUpperCase();
 
     // Apply bank markup to exchange rate (positive % = fee reduces rate, negative % = discount increases rate)
     const rateWithMarkup = exchangeRate * (1 - bankenrate / 100);
@@ -201,8 +201,8 @@ function performCalculations() {
 function swapCurrencies() {
     const sourceEl = document.getElementById('sourceCurrency');
     const targetEl = document.getElementById('targetCurrency');
-    const temp = sourceEl.value;
-    sourceEl.value = targetEl.value;
+    const temp = sourceEl.value.toUpperCase();
+    sourceEl.value = targetEl.value.toUpperCase();
     targetEl.value = temp;
     saveCurrencySettings();
     updateExchangeRate();
